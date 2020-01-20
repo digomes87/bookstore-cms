@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# bookstore-cms
 
-## Available Scripts
+> This is a basic Bookstore CMS app built with HTML, CSS, JS, React and Redux. Based on this [project guidelines](https://github.com/microverseinc/project-redux-bookstore/blob/master/README.md). The main purpose is to develop and deploy a functional React + Redux CMS app.
 
-In the project directory, you can run:
+## Built With
+- Node.js
+- React
+- React-DOM
+- React-Create-App
+- Redux
+- npm
+- CSS
+- ES6
+- HTML
 
-### `yarn start`
+## Live Demo
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Live Demo Link](#)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Getting Started
 
-### `yarn test`
+To get a local copy up and running follow these simple example steps. You can skip the next 3 steps if you choose the live page.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+  A text editor of your choice and Internet connection.
+  
+### Setup
+  Clone the repository on your local or cloud machine.
+  
+### Install
+  Run `npm i` on your terminal to install the required dependencies;
+  Then run `npm run server` to launch the local server. It will open on your main browser.
+  
+### Usage
+  Organize and manage your bookstore!
+  
+## Authors
 
-### `yarn build`
+**Diego Gomes**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Github: [@digomes87](https://github.com/digomes87)
+- Twitter: [@DevDiegoGo](https://twitter.com/DevDiegoGo/)
+- Linkedin: [Diego Gomes](https://www.linkedin.com/in/diego-gomes-6b208384/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Matheus Silva**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Github: [@matheus-fls](https://github.com/matheus-fls)
+- Twitter: [@Matheus06600798](https://twitter.com/Matheus06600798)
+- Linkedin: [Matheus F. Lopes da Silva](https://www.linkedin.com/in/matheus-f-lopes-da-silva-05610a107/)
 
-### `yarn eject`
+## 🤝 Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Contributions, issues and feature requests are welcome!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Feel free to check the [issues page](https://github.com/digomes87/bookstore-cms/issues).
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Show your support
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Give a ⭐️ if you like this project!
 
-## Learn More
+## Acknowledgments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Lots of thanks to the Microverse staff and the TSE's for their constant support and feedback.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 License
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is [MIT](lic.url) licensed.
