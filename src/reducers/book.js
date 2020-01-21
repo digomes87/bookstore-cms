@@ -4,14 +4,15 @@ const books = (state = [], action) => {
       return [...state,{
         id: action.id,
         title: action.title,
-        category: action.category
+        category: action.category,
       }]
     
     case 'REMOVE_BOOK':
-      return state.filter(j => j.id !== action.books.id)
+      return state.filter(j => j.id !== action.books.id);
     
     default:
-      return state
+      return state;
   }
 }
-export default books
+
+export default books;

@@ -1,6 +1,6 @@
 import React from 'react';
 import BooksList from './BooksList';
-import BooksForm from './BooksForm'
+import BooksForm from './BooksForm';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <BooksList />
       <BooksForm />
     </div>
-  )
+  );
 }
 
 export default App;

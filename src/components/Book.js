@@ -1,16 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const Book = (book) => ( 
-    <tr>
-        <td>{book.id}</td>
-        <td>{book.title}</td>
-        <td>{book.category}</td>
-    </tr>
-)
+const Book = (id, title, category) => (
+  <tr>
+    <td>{id}</td>
+    <td>{title}</td>
+    <td>{category}</td>
+  </tr>
+);
 
 Book.propTypes = {
-    book: PropTypes.object.isRequired
-}
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
 
-export default Book
+export default Book;
