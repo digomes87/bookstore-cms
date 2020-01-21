@@ -24,7 +24,7 @@ const initialState = {
       title: 'The Universe in a Nutshell',
       category: 'Science',
     },
-  ]
+  ],
 };
 
 const store = createStore(rootReducer, initialState);
@@ -32,6 +32,6 @@ const store = createStore(rootReducer, initialState);
 render(
   <Provider store={store}>
     <App />
-  </Provider>, 
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById('root'),
 );

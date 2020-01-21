@@ -1,8 +1,7 @@
 import React from 'react';
-import Book from './Book'
-import PropTypes from 'prop-types';
+import Book from './Book';
 
-const BookList = ({books}) => ( 
+const BookList = (books) => ( 
   <div>
     <table>
       <thead>
@@ -20,9 +19,5 @@ const BookList = ({books}) => (
     </table>
   </div>
 );
-
-BookList.propTypes = {
-    books: PropTypes.array
-};
 
 export default BookList;
