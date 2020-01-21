@@ -9,33 +9,39 @@ class BooksForm extends React.Component {
       title: '',
       category: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+		this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event){
-
-    this.setState({
-      title: event.target.value 
-    })
-  }
-
+		event.target.tagName === 'input'
+			? this.setState({title: event.target.value})
+			: this.setState({category: event.target.value});
+	}
 
   handleSubmit(){
-    event.preventDefault();
+		event.preventDefault();
+		//dispatch to Redux
+		this.setState({
+			title: '',
+			category: '',
+		});
   }
 
   render() {
     <div>
       <h2>BookList</h2>
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="title" />
-        {bookCategories.map((p, i) => (
-          <select key={i}>{p}</select> /* eslint-disable-line */
-        ))}
+        <input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
+				<select>
+					{bookCategories.map((p, i) => (
+						<option key={i} value={p} onChange={this.handleChange}>{p}</option> /* eslint-disable-line */
+					))}
+				</select>
         <button type="submit">Save</button>
       </form>
     </div>
   }
 }
+
 export default BooksForm;
