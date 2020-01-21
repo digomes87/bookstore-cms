@@ -13,8 +13,8 @@ const BookList = (books) => (
       </thead>
       <tbody>
         {books.map(e => (
-          <Book id={e.id} title={e.title} category={e.category} />
-				))}
+          <Book id={e.id} title={e.title} category={e.category} key={e.id} />
+        ))}
       </tbody>
     </table>
   </div>
