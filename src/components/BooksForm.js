@@ -1,10 +1,6 @@
 import React from 'react';
 
-const bookCategories = [ 
-    "Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"
-];
-
-
+const bookCategories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
 
 const BooksForm = () => {(
     <div>
