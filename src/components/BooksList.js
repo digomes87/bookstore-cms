@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-const BookList = (books) => ( 
+const BookList = (books) => (
   <div>
     <table>
       <thead>
@@ -12,9 +12,9 @@ const BookList = (books) => (
         </tr>
       </thead>
       <tbody>
-        {books.map(e =>{
+        {books.map(e => (
           <Book id={e.id} title={e.title} category={e.category} />
-        })}
+				))}
       </tbody>
     </table>
   </div>
