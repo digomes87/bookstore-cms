@@ -1,4 +1,6 @@
 import React from 'react';
+import { createBook } from '../actions/index'
+import {connect } from 'react-redux'
 
 const bookCategories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 
@@ -19,7 +21,7 @@ class BooksForm extends React.Component {
 			: this.setState({category: event.target.value});
 	}
 
-  handleSubmit(){
+  handleSubmit(event){
 		event.preventDefault();
 		//dispatch to Redux
 		this.setState({
@@ -29,6 +31,7 @@ class BooksForm extends React.Component {
   }
 
   render() {
+    return(
     <div>
       <h2>BookList</h2>
       <form onSubmit={this.handleSubmit}>
@@ -41,7 +44,22 @@ class BooksForm extends React.Component {
         <button type="submit">Save</button>
       </form>
     </div>
+    )
   }
 }
 
-export default BooksForm;
+const mapStateToProps = (state) => {
+  return {
+    items: state.items
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createBook: book => dispatch(createBook(book))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
+
+// export default BooksForm;
