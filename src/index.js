@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
-import rootReducer from './reducers/index';
+import books from './reducers/book';
 
 const getID = () => Math.floor(Math.random() * 1000);
 
@@ -22,12 +22,12 @@ const initialState = {
     {
       id: getID(),
       title: 'The Universe in a Nutshell',
-      category: 'Science',
+      category: 'Learning',
     },
   ],
 };
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(books, initialState);
 
 render(
   <Provider store={store}>
