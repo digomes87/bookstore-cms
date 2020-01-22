@@ -1,11 +1,11 @@
 import React from 'react';
-import BooksList from './BooksList';
-import BooksForm from './BooksForm';
+import BooksList from '../container/BooksList';
+import BooksForm from '../container/BooksForm';
 
-function App() {
+function App(store) {
   return (
     <div className="App">
-      <BooksList />
+      <BooksList store={store} />
       <BooksForm />
     </div>
   );

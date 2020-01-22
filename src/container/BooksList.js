@@ -1,18 +1,16 @@
 import React from 'react';
 import Book from '../components/Book';
-
+import { connect } from 'react-redux';
 
 class BooksList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      title: '',
-      category: ''
+      books: this.props.items,
     };
-  }
-
+  };
+  
   render() {
-    
     return(
     <div>
       <table>
@@ -24,7 +22,7 @@ class BooksList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {books.map(e => (
+          {this.state.books.map(e => (
             <Book id={e.id} title={e.title} category={e.category} key={e.id} />
           ))}
         </tbody>
@@ -33,4 +31,11 @@ class BooksList extends React.Component {
     )
   } 
 }
-export default BooksList;
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    items: state.books,
+  }
+}
+
+export default connect(mapStateToProps)(BooksList);

@@ -22,7 +22,7 @@ const initialState = {
     {
       id: getID(),
       title: 'The Universe in a Nutshell',
-      category: 'Science',
+      category: 'Learning',
     },
   ],
 };

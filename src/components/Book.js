@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Book = (id, title, category) => (
+const Book = ({id, title, category}) => (
   <tr>
     <td>{id}</td>
     <td>{title}</td>
