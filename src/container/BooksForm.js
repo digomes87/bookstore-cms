@@ -23,13 +23,9 @@ class BooksForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
-    const newBook = {
-      title: this.state.title,
-      category: this.state.category,
-      type: 'CREATE_BOOK',
-    };
-    this.props.createBook(this.props.items.books, newBook);
-    console.log(this.props.items);
+    const { title, category } = this.state;
+    this.props.dispatch({ type: 'CREATE_BOOK', title: title, category: category, });
+    console.log(this.props);
   }
 
   render() {
@@ -52,14 +48,14 @@ class BooksForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ items: state.books });
+const mapStateToProps = (state) => ({ items: state });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    createBook: () => {
-      dispatch(createBook())
-    }
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     createBook: () => {
+//       dispatch(createBook())
+//     }
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
+export default connect(mapStateToProps)(BooksForm);

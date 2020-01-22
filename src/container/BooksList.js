@@ -35,7 +35,7 @@ class BooksList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ items: state.books });
+const mapStateToProps = (state) => ({ items: state });
 
 BooksList.propTypes = {
   items: PropTypes.instanceOf(Array).isRequired,
