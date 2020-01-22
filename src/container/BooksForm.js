@@ -4,8 +4,8 @@ class BooksForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      category: 'Action',
+      title: '', /* eslint-disable-line */
+      category: 'Action', /* eslint-disable-line */
     };
   }
 
