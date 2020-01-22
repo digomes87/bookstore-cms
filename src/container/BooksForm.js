@@ -1,23 +1,52 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 const bookCategories = ['Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 
-const BooksForm = () => (
-  <div>
-    <h2>Add Book</h2>
-    <form>
-      <input type="text" name="title" />
-      <select>
-        {bookCategories.map((p, i) => (
-          <option key={i}>{p}</option> /* eslint-disable-line */
-        ))}
-      </select>
-      <button type="submit">Save</button>
-    </form>
-  </div>
-);
 
-export default BooksForm;
+class BooksForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      category: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event){
+    event.target.tagName === 'INPUT'
+      ? this.setState({title: event.target.value})
+      : this.setState({category: event.target.value});
+      console.log(this.state)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    console.log(this.state)
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Add Book</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="title" onChange={this.handleChange} value={this.state.title}/>
+          <select onChange={this.handleChange} value={this.state.category}>
+            {bookCategories.map((p, i) => (
+              <option key={i}>{p}</option> /* eslint-disable-line */
+            ))}
+          </select>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    )
+  }
+
+}
+
+export default connect()(BooksForm);
 
 // import React from 'react';
 // import { createBook } from '../actions/index'
