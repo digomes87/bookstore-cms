@@ -9,28 +9,21 @@ class BooksForm extends React.Component {
       title: '',
       category: 'Action'
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event){
+  handleChange = (event) => {
     event.target.tagName === 'INPUT'
       ? this.setState({title: event.target.value})
       : this.setState({category: event.target.value});
-      console.log(this.state)
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
-    const { title, category } = this.state;
-    this.props.dispatch({ type: 'CREATE_BOOK', title: title, category: category, });
-    console.log(this.props);
+    this.props.createBook(this.state)
   }
 
   render() {
     const bookCategories = ['Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-
     return (
       <div>
         <h2>Add Book</h2>
@@ -48,14 +41,8 @@ class BooksForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ items: state });
+const mapDispatchToProps = dispatch => ({
+  createBook: book => dispatch(createBook(book))
+});
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     createBook: () => {
-//       dispatch(createBook())
-//     }
-//   };
-// };
-
-export default connect(mapStateToProps)(BooksForm);
+export default connect(null, mapDispatchToProps)(BooksForm);

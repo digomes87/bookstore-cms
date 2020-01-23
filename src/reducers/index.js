@@ -1,38 +1,17 @@
 const getID = () => Math.floor(Math.random() * 1000);
 
-let initialState = [
-  {
-    id: getID(),
-    title: 'Wuthering Heights',
-    category: 'Drama',
-  },
-  {
-    id: getID(),
-    title: 'Dracula',
-    category: 'Horror',
-  },
-  {
-    id: getID(),
-    title: 'The Universe in a Nutshell',
-    category: 'Learning',
-  },
-];
-
-const reducers = (state = initialState, action) => {
+const reducers = (state = [], action) => {
   const id = getID();
   switch (action.type) {
     case 'CREATE_BOOK':
-      return [
-        ...state,
-        {
-          id: id,
-          title: action.title,
-          category: action.category,
-        }
-      ]
+      return [...state, {
+        id: id,
+        title: action.book.title,
+        category: action.book.category,
+      }];
 
     case 'REMOVE_BOOK':
-      return state.filter(j => j.id !== action.books.id);
+      return state.filter(j => j.id !== action.id);
 
     default:
       return state;
