@@ -6,14 +6,11 @@ import Book from '../components/Book';
 class BooksList extends React.Component {
   constructor(props) {
     super(props);
-    const { items } = this.props;
-    this.state = {
-      books: items,
-    };
+    this.props = props;
   }
 
   render() {
-    const { books } = this.state;
+    const { books } = this.props;
     return (
       <div>
         <table>
@@ -35,10 +32,10 @@ class BooksList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ items: state.books });
+const mapStateToProps = (state) => ({ books: state });
 
 BooksList.propTypes = {
-  items: PropTypes.instanceOf(Array).isRequired,
+  books: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default connect(mapStateToProps)(BooksList);
