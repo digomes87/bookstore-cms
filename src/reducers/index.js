@@ -5,7 +5,7 @@ const reducers = (state = [], action) => {
   switch (action.type) {
     case 'CREATE_BOOK':
       return [...state, {
-        id: id,
+        id,
         title: action.book.title,
         category: action.book.category,
       }];
