@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
-import reducers from './reducers';
+import rootReducer from './reducers';
+
 
 const getID = () => Math.floor(Math.random() * 1000);
 const initialState = [
@@ -24,7 +25,7 @@ const initialState = [
   },
 ];
 
-const store = createStore(reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); /* eslint-disable-line */
+const store = createStore(rootReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); /* eslint-disable-line */
 
 render(
   <Provider store={store}>

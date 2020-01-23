@@ -1,21 +1,10 @@
-const getID = () => Math.floor(Math.random() * 1000);
+import { combineReducers } from 'redux';
+import bookReducers from './book';
+import visibilityFilter from './filter';
 
-const reducers = (state = [], action) => {
-  const id = getID();
-  switch (action.type) {
-    case 'CREATE_BOOK':
-      return [...state, {
-        id,
-        title: action.book.title,
-        category: action.book.category,
-      }];
+const rootReducer = combineReducers({
+  bookReducers,
+  visibilityFilter,
+});
 
-    case 'REMOVE_BOOK':
-      return state.filter(j => j.id !== action.id);
-
-    default:
-      return state;
-  }
-};
-
-export default reducers;
+export default rootReducer;
