@@ -10,7 +10,7 @@ class BooksList extends React.Component {
   }
 
   render() {
-    const { books } = this.props;
+    const books = this.props.items.books;
     return (
       <div>
         <table>
@@ -32,10 +32,10 @@ class BooksList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ books: state });
+const mapStateToProps = (state) => ({ items: state });
 
 BooksList.propTypes = {
-  books: PropTypes.instanceOf(Array).isRequired,
+  items: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(mapStateToProps)(BooksList);

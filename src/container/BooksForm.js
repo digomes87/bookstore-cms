@@ -18,7 +18,6 @@ class BooksForm extends React.Component {
       : this.setState({ category: event.target.value })
   )
 
-
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.createBook(this.state); /* eslint-disable-line */

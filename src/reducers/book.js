@@ -1,6 +1,23 @@
 const getID = () => Math.floor(Math.random() * 1000);
+const initialState = [
+  {
+    id: getID(),
+    title: 'Wuthering Heights',
+    category: 'Drama',
+  },
+  {
+    id: getID(),
+    title: 'Dracula',
+    category: 'Horror',
+  },
+  {
+    id: getID(),
+    title: 'The Universe in a Nutshell',
+    category: 'Learning',
+  },
+];
 
-const bookReducers = (state = [], action) => {
+const books = (state = initialState, action) => {
   const id = getID();
   switch (action.type) {
     case 'CREATE_BOOK':
@@ -18,4 +35,4 @@ const bookReducers = (state = [], action) => {
   }
 };
 
-export default bookReducers;
+export default books;
