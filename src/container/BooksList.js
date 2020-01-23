@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
+import CategoryFilter from '../components/CategoryFilter';
+import { changeFilter } from '../actions/index';
 
 class BooksList extends React.Component {
   constructor(props) {
@@ -9,10 +11,16 @@ class BooksList extends React.Component {
     this.props = props;
   }
 
+  handleFilterChange = (event) => (
+    this.props.changeFilter(event.target.value)
+  )
+
   render() {
-    const books = this.props.items.books;
+    console.log(this.props);
+    const { books } = this.props.items; /* eslint-disable-line */
     return (
       <div>
+        <CategoryFilter filterChange={this.handleFilterChange} />
         <table>
           <thead>
             <tr>
@@ -36,6 +44,12 @@ const mapStateToProps = (state) => ({ items: state });
 
 BooksList.propTypes = {
   items: PropTypes.instanceOf(Object).isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(BooksList);
+const mapDispatchToProps = dispatch => ({
+  changeFilter: filter => dispatch(changeFilter(filter)),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
