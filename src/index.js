@@ -3,31 +3,28 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
-import books from './reducers/book';
+import reducers from './reducers';
 
 const getID = () => Math.floor(Math.random() * 1000);
+const initialState = [
+  {
+    id: getID(),
+    title: 'Wuthering Heights',
+    category: 'Drama',
+  },
+  {
+    id: getID(),
+    title: 'Dracula',
+    category: 'Horror',
+  },
+  {
+    id: getID(),
+    title: 'The Universe in a Nutshell',
+    category: 'Learning',
+  },
+];
 
-const initialState = {
-  books: [
-    {
-      id: getID(),
-      title: 'Wuthering Heights',
-      category: 'Drama',
-    },
-    {
-      id: getID(),
-      title: 'Dracula',
-      category: 'Horror',
-    },
-    {
-      id: getID(),
-      title: 'The Universe in a Nutshell',
-      category: 'Learning',
-    },
-  ],
-};
-
-const store = createStore(books, initialState);
+const store = createStore(reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); /* eslint-disable-line */
 
 render(
   <Provider store={store}>
