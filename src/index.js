@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
 import rootReducer from './reducers';
+import './styles/App.css';
+import './styles/Book.css';
 
 const getID = () => Math.floor(Math.random() * 1000);
 const initialState = [
