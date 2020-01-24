@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import CategoryFilter from '../components/CategoryFilter';
-import { changeFilter } from '../actions/index';
-import { removeBook } from '../actions';
+import { removeBook, changeFilter } from '../actions';
 
 class BooksList extends React.Component {
   constructor(props) {
@@ -17,12 +16,13 @@ class BooksList extends React.Component {
     removeBook(book);
   }
 
-  handleFilter = (filter) => { this.props.changeFilter(filter) }
+  handleFilter = (filter) => {
+    const { changeFilter } = this.props;
+    changeFilter(filter);
+  }
 
   render() {
-    console.log(this.props);
-    const { books } = this.props.items; /* eslint-disable-line */
-    console.log(books)
+    const { books, filter } = this.props.items;
     return (
       <div>
         <CategoryFilter handleFilter={this.handleFilter} />
@@ -36,9 +36,9 @@ class BooksList extends React.Component {
           </thead>
           <tbody>
             {books
-              .filter(el => this.props.items.filter === 'ALL'
+              .filter(el => (filter === 'ALL'
                 ? el
-                : el.category === this.props.items.filter
+                : el.category === filter)
               )
               .map(e => (
                 <Book

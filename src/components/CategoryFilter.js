@@ -8,15 +8,16 @@ class CategoryFilter extends React.Component {
   }
 
   handleChange = event => {
-    this.props.handleFilter({ filter: event.target.value });
+    const { handleFilter } = this.props;
+    handleFilter({ filter: event.target.value });
   }
 
   render() {
     const bookCategories = ['ALL', 'Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-    
+
     return (
       <div>
-        <select onChange={this.handleChange} >
+        <select onChange={this.handleChange}>
           {bookCategories.map((p, i) => (
             <option key={i}>{p}</option> /* eslint-disable-line */
           ))}
