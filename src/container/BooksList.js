@@ -36,7 +36,10 @@ class BooksList extends React.Component {
           </thead>
           <tbody>
             {books
-              //.filter(el => el.category === this.props.items.filter)
+              .filter(el => this.props.items.filter === 'ALL'
+                ? el
+                : el.category === this.props.items.filter
+              )
               .map(e => (
                 <Book
                 id={e.id}
@@ -44,7 +47,7 @@ class BooksList extends React.Component {
                 category={e.category}
                 key={e.id}
                 handleBookRemove={this.handleBookRemove}
-              />
+                />
               ))
             }
           </tbody>

@@ -3,7 +3,6 @@ import { VisibilityFilters } from '../actions';
 const filter = (state = VisibilityFilters.ALL, action) => {
   switch (action.type) {
     case 'CHANGE_FILTER':
-      console.log(action)
       return action.filter.filter;
     default:
       return state;
