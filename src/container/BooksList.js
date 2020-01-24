@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { removeBook } from '../actions'
- 
+import { removeBook } from '../actions';
+
 class BooksList extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,8 @@ class BooksList extends React.Component {
   }
 
   handleBookRemove = (book) => {
-    this.props.removeBook(book)
+    const { removeBook } = this.props;
+    removeBook(book);
   }
 
   render() {
@@ -29,7 +30,13 @@ class BooksList extends React.Component {
           </thead>
           <tbody>
             {books.map(e => (
-              <Book id={e.id} title={e.title} category={e.category} key={e.id} handleBookRemove={this.handleBookRemove} />
+              <Book 
+                id={e.id} 
+                title={e.title}
+                category={e.category}
+                key={e.id}
+                handleBookRemove={this.handleBookRemove}
+              />
             ))}
           </tbody>
         </table>
@@ -40,11 +47,7 @@ class BooksList extends React.Component {
 
 const mapStateToProps = (state) => ({ books: state });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeBook: book => dispatch(removeBook(book))
-  }
-};
+const mapDispatchToProps = (dispatch) => ({ removeBook: book => dispatch(removeBook(book)) });
 
 BooksList.propTypes = {
   books: PropTypes.instanceOf(Array).isRequired,
