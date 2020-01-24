@@ -19,8 +19,12 @@ class BooksForm extends React.Component {
   )
 
   handleSubmit = (event) => {
+    const { createBook } = this.props;
+    const { title } = this.state;
     event.preventDefault();
-    this.props.createBook(this.state); /* eslint-disable-line */
+    title !== ''
+      ? createBook(this.state)
+      : alert("Please add a title!")
   }
 
   render() {
