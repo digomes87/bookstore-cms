@@ -22,9 +22,7 @@ class BooksForm extends React.Component {
     const { createBook } = this.props;
     const { title } = this.state;
     event.preventDefault();
-    title !== ''
-      ? createBook(this.state)
-      : alert("Please add a title!")
+    title !== '' ? createBook(this.state) : alert('Please add a title!'); /* eslint-disable-line */
   }
 
   render() {
