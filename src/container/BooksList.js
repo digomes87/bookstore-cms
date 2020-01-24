@@ -22,7 +22,7 @@ class BooksList extends React.Component {
   }
 
   render() {
-    const { items: {books, filter} } = this.props;
+    const { items: { books, filter } } = this.props;
     return (
       <div>
         <CategoryFilter handleFilter={this.handleFilter} />
@@ -36,7 +36,7 @@ class BooksList extends React.Component {
           </thead>
           <tbody>
             {books
-              .filter(el => filter === 'ALL' ? el : el.category === filter)
+              .filter(el => (filter === 'ALL' ? el : el.category === filter))
               .map(e => (
                 <Book
                   id={e.id}
