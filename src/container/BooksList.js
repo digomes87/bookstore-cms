@@ -10,7 +10,7 @@ class BooksList extends React.Component {
     this.props = props;
   }
 
-  handleBookRemove(book) {
+  handleBookRemove = (book) => {
     this.props.removeBook(book)
   }
 
@@ -50,4 +50,4 @@ BooksList.propTypes = {
   books: PropTypes.instanceOf(Array).isRequired,
 };
 
-export default connect(mapStateToProps)(BooksList);
+export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
