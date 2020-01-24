@@ -11,8 +11,7 @@ const reducers = (state = [], action) => {
       }];
 
     case 'REMOVE_BOOK':
-      return state.filter(j => j.id !== action.id);
-
+      return state.filter(j => j.id !== action.book);
     default:
       return state;
   }
