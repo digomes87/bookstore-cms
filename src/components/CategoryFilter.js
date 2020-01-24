@@ -16,7 +16,8 @@ class CategoryFilter extends React.Component {
     const bookCategories = ['ALL', 'Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 
     return (
-      <div>
+      <div className="Category-selector">
+        <span className="author">Category Select</span>
         <select onChange={this.handleChange}>
           {bookCategories.map((p, i) => (
             <option key={i}>{p}</option> /* eslint-disable-line */

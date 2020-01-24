@@ -27,13 +27,6 @@ class BooksList extends React.Component {
       <div>
         <CategoryFilter handleFilter={this.handleFilter} />
         <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Category</th>
-            </tr>
-          </thead>
           <tbody>
             {books
               .filter(el => (filter === 'ALL' ? el : el.category === filter))

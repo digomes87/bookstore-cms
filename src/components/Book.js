@@ -7,12 +7,12 @@ const Book = ({
   category,
   handleBookRemove,
 }) => (
-  <div className="panel">
-    <tr className="container">
+  <div className="Book-container">
+    <tr className="Book-list">
       <td className="category">{category}</td>
-      <td className="id">{id}</td>
       <td className="title">{title}</td>
-      <td><button onClick={() => handleBookRemove(id)} type="button">X</button></td>
+      <td className="author">{id}</td>
+      <td><button onClick={() => handleBookRemove(id)} type="button" className="remove">Remove</button></td>
     </tr>
   </div>
 );
