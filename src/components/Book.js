@@ -8,12 +8,12 @@ const Book = ({
   handleBookRemove,
 }) => (
   <div className="Book-container">
-    <tr className="Book-list">
-      <td className="category">{category}</td>
-      <td className="title">{title}</td>
-      <td className="author">{id}</td>
-      <td><button onClick={() => handleBookRemove(id)} type="button" className="remove">Remove</button></td>
-    </tr>
+    <div className="Book-list">
+      <div className="category">{category}</div>
+      <div className="title">{title}</div>
+      <div className="author">{id}</div>
+      <div><button onClick={() => handleBookRemove(id)} type="button" className="remove">Remove</button></div>
+    </div>
   </div>
 );
 
