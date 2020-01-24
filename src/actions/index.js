@@ -14,5 +14,5 @@ export const changeFilter = filter => ({
 });
 
 export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
+  ALL: 'ALL',
 };
