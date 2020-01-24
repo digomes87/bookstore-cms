@@ -1,11 +1,13 @@
 import React from 'react';
 import BooksList from '../container/BooksList';
 import BooksForm from '../container/BooksForm';
+import Header from './Header';
 
-function App(store) {
+function App() {
   return (
     <div className="App">
-      <BooksList store={store} />
+      <Header />
+      <BooksList />
       <BooksForm />
     </div>
   );
