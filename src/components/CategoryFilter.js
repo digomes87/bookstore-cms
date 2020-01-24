@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class CategoryFilter extends React.Component {
@@ -8,15 +7,16 @@ class CategoryFilter extends React.Component {
     this.props = props;
   }
 
-  handleChange = (event) => (
-    this.props.changeFilter(event)
-  )
+  handleChange = event => {
+    this.props.handleFilter({ filter: event.target.value });
+  }
 
   render() {
-    const bookCategories = ['Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi', 'ALL'];
+    const bookCategories = ['ALL', 'Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+    
     return (
       <div>
-        <select onChange={this.changeFilter}>
+        <select onChange={this.handleChange} >
           {bookCategories.map((p, i) => (
             <option key={i}>{p}</option> /* eslint-disable-line */
           ))}
@@ -27,11 +27,7 @@ class CategoryFilter extends React.Component {
 }
 
 CategoryFilter.propTypes = {
-  changeFilter: PropTypes.func.isRequired,
+  handleFilter: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  changeFilter: filter => dispatch(changeFilter(filter)),
-});
-
-export default connect(null, mapDispatchToProps)(CategoryFilter);
+export default CategoryFilter;

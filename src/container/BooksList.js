@@ -11,16 +11,15 @@ class BooksList extends React.Component {
     this.props = props;
   }
 
-  handleFilterChange = (event) => (
-    this.props.changeFilter(event.target.value)
-  )
+  handleFilter = (filter) => { this.props.changeFilter(filter) }
 
   render() {
     console.log(this.props);
     const { books } = this.props.items; /* eslint-disable-line */
+    console.log(books)
     return (
       <div>
-        <CategoryFilter filterChange={this.handleFilterChange} />
+        <CategoryFilter handleFilter={this.handleFilter} />
         <table>
           <thead>
             <tr>
@@ -30,9 +29,12 @@ class BooksList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {books.map(e => (
-              <Book id={e.id} title={e.title} category={e.category} key={e.id} />
-            ))}
+            {books
+              .filter(el => el.category === this.props.items.filter)
+              .map(e => (
+                <Book id={e.id} title={e.title} category={e.category} key={e.id} />
+              ))
+            }
           </tbody>
         </table>
       </div>
@@ -42,14 +44,12 @@ class BooksList extends React.Component {
 
 const mapStateToProps = (state) => ({ items: state });
 
-BooksList.propTypes = {
-  items: PropTypes.instanceOf(Object).isRequired,
-  changeFilter: PropTypes.func.isRequired,
-};
-
 const mapDispatchToProps = dispatch => ({
   changeFilter: filter => dispatch(changeFilter(filter)),
 });
 
+BooksList.propTypes = {
+  items: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
