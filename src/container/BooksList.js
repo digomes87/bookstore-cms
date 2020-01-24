@@ -22,7 +22,7 @@ class BooksList extends React.Component {
   }
 
   render() {
-    const { books, filter } = this.props.items;
+    const { items: {books, filter} } = this.props;
     return (
       <div>
         <CategoryFilter handleFilter={this.handleFilter} />
@@ -36,17 +36,14 @@ class BooksList extends React.Component {
           </thead>
           <tbody>
             {books
-              .filter(el => (filter === 'ALL'
-                ? el
-                : el.category === filter)
-              )
+              .filter(el => filter === 'ALL' ? el : el.category === filter)
               .map(e => (
                 <Book
-                id={e.id}
-                title={e.title}
-                category={e.category}
-                key={e.id}
-                handleBookRemove={this.handleBookRemove}
+                  id={e.id}
+                  title={e.title}
+                  category={e.category}
+                  key={e.id}
+                  handleBookRemove={this.handleBookRemove}
                 />
               ))
             }
@@ -67,6 +64,7 @@ const mapDispatchToProps = dispatch => ({
 BooksList.propTypes = {
   items: PropTypes.instanceOf(Object).isRequired,
   removeBook: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
