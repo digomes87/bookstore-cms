@@ -30,8 +30,8 @@ class BooksList extends React.Component {
           </thead>
           <tbody>
             {books.map(e => (
-              <Book 
-                id={e.id} 
+              <Book
+                id={e.id}
                 title={e.title}
                 category={e.category}
                 key={e.id}
@@ -51,6 +51,7 @@ const mapDispatchToProps = (dispatch) => ({ removeBook: book => dispatch(removeB
 
 BooksList.propTypes = {
   books: PropTypes.instanceOf(Array).isRequired,
+  removeBook: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
