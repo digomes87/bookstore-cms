@@ -19,19 +19,21 @@ class BooksForm extends React.Component {
   )
 
   handleSubmit = (event) => {
+    const { createBook } = this.props;
+    const { title } = this.state;
     event.preventDefault();
-    this.props.createBook(this.state); /* eslint-disable-line */
+    title !== '' ? createBook(this.state) : alert('Please add a title!'); /* eslint-disable-line */
   }
 
   render() {
     const bookCategories = ['Action', 'Biography', 'Drama', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
     const { title, category } = this.state;
     return (
-      <div>
+      <div className="Book-form">
         <h2>Add Book</h2>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="title" onChange={this.handleChange} value={title} />
-          <select onChange={this.handleChange} value={category}>
+          <input type="text" name="title" onChange={this.handleChange} value={title} className="input" />
+          <select onChange={this.handleChange} value={category} className="select">
             {bookCategories.map((p, i) => (
               <option key={i}>{p}</option> /* eslint-disable-line */
             ))}

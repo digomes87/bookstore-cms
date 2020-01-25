@@ -7,12 +7,14 @@ const Book = ({
   category,
   handleBookRemove,
 }) => (
-  <tr>
-    <td>{id}</td>
-    <td>{title}</td>
-    <td>{category}</td>
-    <td><button onClick={() => handleBookRemove(id)} type="button">X</button></td>
-  </tr>
+  <div className="Book-container">
+    <div className="Book-list">
+      <div className="category">{category}</div>
+      <div className="title">{title}</div>
+      <div className="author">{id}</div>
+      <div><button onClick={() => handleBookRemove(id)} type="button" className="remove">Remove</button></div>
+    </div>
+  </div>
 );
 
 Book.propTypes = {

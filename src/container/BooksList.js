@@ -26,29 +26,20 @@ class BooksList extends React.Component {
     return (
       <div>
         <CategoryFilter handleFilter={this.handleFilter} />
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books
-              .filter(el => (filter === 'ALL' ? el : el.category === filter))
-              .map(e => (
-                <Book
-                  id={e.id}
-                  title={e.title}
-                  category={e.category}
-                  key={e.id}
-                  handleBookRemove={this.handleBookRemove}
-                />
-              ))
-            }
-          </tbody>
-        </table>
+        <div>
+          {books
+            .filter(el => (filter === 'ALL' ? el : el.category === filter))
+            .map(e => (
+              <Book
+                id={e.id}
+                title={e.title}
+                category={e.category}
+                key={e.id}
+                handleBookRemove={this.handleBookRemove}
+              />
+            ))
+          }
+        </div>
       </div>
     );
   }
