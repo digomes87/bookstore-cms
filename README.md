@@ -1,5 +1,5 @@
 # bookstore-cms
-
+![](bookstore.png)
 > This is a basic Bookstore CMS app built with HTML, CSS, JS, React and Redux. Based on this [project guidelines](https://github.com/microverseinc/project-redux-bookstore/blob/master/README.md). The main purpose is to develop and deploy a functional React + Redux CMS app.
 
 ## Built With
@@ -30,6 +30,11 @@ To get a local copy up and running follow these simple example steps. You can sk
 ### Install
   Run `npm i` on your terminal to install the required dependencies;
   Then run `npm run server` to launch the local server. It will open on your main browser.
+  
+  Or 
+
+  `yarn install` for install all depences
+  `yarn start` for runner the server
   
 ### Usage
   Organize and manage your bookstore!
